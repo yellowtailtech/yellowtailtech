@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPForms Zapier 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wpforms.com/support/\n"
+"Last-Translator: WPForms <support@wpforms.com>\n"
+"Language-Team: WPForms <support@wpforms.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-04-15T11:54:17+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: wpforms-zapier\n"
+
+#. Plugin Name of the plugin
+msgid "WPForms Zapier"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wpforms.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Zapier integration with WPForms."
+msgstr ""
+
+#. Author of the plugin
+msgid "WPForms"
+msgstr ""
+
+#: src/Plugin.php:100
+msgid "Zaps Have Been Disabled"
+msgstr ""
+
+#. translators: %s - URL to the list of Zaps.
+#: src/Plugin.php:102
+msgid "Head over to the Zapier settings in the Marketing tab or visit your <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Zapier account</a> to restore them."
+msgstr ""
+
+#. translators: %s - field id.
+#: src/Plugin.php:229
+msgid "Field #%s"
+msgstr ""
+
+#: src/Plugin.php:268
+msgid "First"
+msgstr ""
+
+#: src/Plugin.php:269
+msgid "Middle"
+msgstr ""
+
+#: src/Plugin.php:270
+msgid "Last"
+msgstr ""
+
+#: src/Plugin.php:307
+msgid "Line 1"
+msgstr ""
+
+#: src/Plugin.php:308
+msgid "Line 2"
+msgstr ""
+
+#: src/Plugin.php:309
+msgid "City"
+msgstr ""
+
+#: src/Plugin.php:310
+msgid "State"
+msgstr ""
+
+#: src/Plugin.php:311
+msgid "Region"
+msgstr ""
+
+#: src/Plugin.php:312
+msgid "Postal"
+msgstr ""
+
+#: src/Plugin.php:313
+msgid "Country"
+msgstr ""
+
+#: src/Plugin.php:319
+msgid "Date"
+msgstr ""
+
+#: src/Plugin.php:320
+msgid "Time"
+msgstr ""
+
+#: src/Plugin.php:321
+msgid "Unix Timestamp"
+msgstr ""
+
+#: src/Plugin.php:333
+msgid "Plain Amount"
+msgstr ""
+
+#: src/Plugin.php:404
+msgid "Zapier Zap error"
+msgstr ""
+
+#: src/Plugin.php:493
+msgid "Invalid WPForms Zapier API key"
+msgstr ""
+
+#: src/Plugin.php:613
+msgid "No data"
+msgstr ""
+
+#: src/Plugin.php:669
+msgid "Zapier automatically moves info between WPForms and other apps you use every day, so you can save time, reduce tedious tasks, and focus on your most important work. Set up automated workflows (called Zaps) that send form entries to your CRM, email app, marketing automation tool, and much more — no manual work or coding required."
+msgstr ""
+
+#: src/Plugin.php:680
+msgid "No name"
+msgstr ""
+
+#: src/Plugin.php:681
+msgid "Yes"
+msgstr ""
+
+#: src/Plugin.php:681
+msgid "No"
+msgstr ""
+
+#: src/Plugin.php:686
+msgid "Date Connected"
+msgstr ""
+
+#: src/Plugin.php:690
+msgid "Live"
+msgstr ""
+
+#: src/Plugin.php:733
+msgid "Popular ways to use WPForms + Zapier"
+msgstr ""
+
+#: src/Plugin.php:758
+msgid "Get started connecting WPForms with Zapier."
+msgstr ""
+
+#. translators: %s - API key.
+#: src/Plugin.php:771
+#: src/Plugin.php:875
+msgid "Your WPForms Zapier API key: %s"
+msgstr ""
+
+#. translators: %s - site home URL.
+#: src/Plugin.php:785
+#: src/Plugin.php:884
+msgid "Your website URL for Zapier configuration: %s"
+msgstr ""
+
+#: src/Plugin.php:849
+msgid "Show Accounts"
+msgstr ""
+
+#. translators: %s - provider name.
+#: src/Plugin.php:858
+msgid "Integrate %s with WPForms"
+msgstr ""
+
+#: src/Plugin.php:864
+msgid "Connected"
+msgstr ""
+
+#: src/Plugin.php:892
+msgid "No forms are currently connected."
+msgstr ""
+
+#: src/Plugin.php:894
+msgid "Click here for documentation on connecting WPForms with Zapier."
+msgstr ""
+
+#: src/Plugin.php:898
+msgid "The forms below are currently connected to Zapier."
+msgstr ""
+
+#. translators: %1$s - Connection date.
+#: src/Plugin.php:907
+msgid "Connected on: %1$s"
+msgstr ""

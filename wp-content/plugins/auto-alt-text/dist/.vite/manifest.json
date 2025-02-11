@@ -1,0 +1,17 @@
+{
+  "resources/js/admin.js": {
+    "file": "assets/admin-DbTqePvB.js",
+    "name": "admin",
+    "src": "resources/js/admin.js",
+    "isEntry": true,
+    "css": [
+      "assets/admin-NC5WVlIc.css"
+    ]
+  },
+  "resources/js/media-library.js": {
+    "file": "assets/media-library-CkLbp6wa.js",
+    "name": "media-library",
+    "src": "resources/js/media-library.js",
+    "isEntry": true
+  }
+}

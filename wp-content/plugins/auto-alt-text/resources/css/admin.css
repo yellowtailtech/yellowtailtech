@@ -1,0 +1,63 @@
+.aat-options {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+
+  &.plugin-description {
+    padding: 20px 40px;
+    ul {
+      margin-top: 0;
+    }
+    p, li {
+      font-size: 16px;
+    }
+  }
+
+  & > div {
+    border-bottom: 1px solid #ededed;
+    padding: 20px;
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-width: 100%;
+      font-size: 16px;
+      padding: 3px 10px;
+      border: 1px solid #ccc;
+    }
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  p.description {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .plugin-option {
+    display: none;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 13px;
+  }
+
+  #error-log {
+    width:98%;
+    height: 600px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+    padding: 10px;
+    background-color: #f0f0f1;
+  }
+}

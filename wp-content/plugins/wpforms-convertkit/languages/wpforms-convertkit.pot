@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPForms Kit 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wpforms.com/support/\n"
+"Last-Translator: WPForms <support@wpforms.com>\n"
+"Language-Team: WPForms <support@wpforms.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-11-05T17:27:05+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: wpforms-convertkit\n"
+
+#. Plugin Name of the plugin
+msgid "WPForms Kit"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wpforms.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Kit integration with WPForms."
+msgstr ""
+
+#. Author of the plugin
+msgid "WPForms"
+msgstr ""
+
+#: src/Provider/Account.php:123
+msgid "Invalid Kit API credentials. Please check your information and try again."
+msgstr ""
+
+#: src/Provider/Account.php:130
+msgid "Account with these credentials has already been added."
+msgstr ""
+
+#: src/Provider/Actions/RemoveTagsAction.php:26
+#: src/Provider/Actions/SubscribeAction.php:80
+#: src/Provider/Actions/UnsubscribeAction.php:26
+msgid "The email is a required argument."
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:282
+msgid "Marketing provider connection"
+msgstr ""
+
+#. translators: %1$s - untranslatable brand name (Kit).
+#: src/Provider/Settings/FormBuilder.php:339
+msgid "New %1$s Account"
+msgstr ""
+
+#. translators: %1$s - untranslatable brand name (Kit).
+#: src/Provider/Settings/FormBuilder.php:363
+#: src/Provider/Settings/PageIntegrations.php:34
+msgid "Both %1$s API Key and API Secret fields are required."
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:398
+#: src/Provider/Settings/FormBuilder.php:456
+#: src/Provider/Settings/FormBuilder.php:475
+msgid "Email"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:404
+msgid "New Email"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:410
+msgid "First Name"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:416
+msgid "Form"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:419
+msgid "--- Select Form ---"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:422
+#: src/Provider/Settings/FormBuilder.php:481
+msgid "Tags"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:426
+#: src/Provider/Settings/FormBuilder.php:485
+msgid "--- Select Tags ---"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:429
+msgid "New Tags"
+msgstr ""
+
+#. translators: %1$s - untranslatable brand name (Kit).
+#: src/Provider/Settings/FormBuilder.php:433
+msgid "This field accepts a comma-separated list of tags. Tags listed in this field will be added to your %1$s account."
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:438
+#: templates/builder/custom-fields.php:9
+msgid "Custom Fields"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:516
+msgid "Subscribe"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:517
+msgid "Unsubscribe"
+msgstr ""
+
+#: src/Provider/Settings/FormBuilder.php:518
+msgid "Remove subscriber's tags"
+msgstr ""
+
+#. translators: %1$s - untranslatable brand name (Kit).
+#: src/Provider/Settings/FormBuilder.php:598
+msgid "To complete your form's %1$s integration please check that at least one Form or Tag has been selected."
+msgstr ""
+
+#: templates/builder/connection.php:27
+msgid "Select Account"
+msgstr ""
+
+#: templates/builder/connection.php:30
+msgid "--- Select ---"
+msgstr ""
+
+#: templates/builder/connection.php:42
+msgid "Action To Perform"
+msgstr ""
+
+#: templates/builder/connection.php:49
+msgid "--- Select Action ---"
+msgstr ""
+
+#: templates/builder/custom-fields.php:13
+msgid "Custom Field Name"
+msgstr ""
+
+#: templates/builder/custom-fields.php:14
+msgid "Form Field Value"
+msgstr ""
+
+#: templates/builder/custom-fields.php:29
+#: templates/builder/custom-fields.php:87
+msgid "--- Select Field ---"
+msgstr ""
+
+#: templates/builder/custom-fields.php:30
+#: templates/builder/custom-fields.php:88
+msgid "New Custom Field"
+msgstr ""
+
+#: templates/builder/custom-fields.php:39
+#: templates/builder/custom-fields.php:98
+msgid "Field Name"
+msgstr ""
+
+#: templates/builder/custom-fields.php:48
+#: templates/builder/custom-fields.php:107
+#: templates/builder/select-field.php:15
+msgid "--- Select Form Field ---"
+msgstr ""
+
+#: templates/builder/custom-fields.php:64
+#: templates/builder/custom-fields.php:123
+msgid "Add Another"
+msgstr ""
+
+#: templates/builder/custom-fields.php:72
+msgid "Remove"
+msgstr ""
+
+#: templates/builder/custom-fields.php:131
+msgid "Delete"
+msgstr ""
+
+#. translators: %1$s - current provider name.
+#: templates/builder/custom-fields.php:145
+msgid "Map %1$s custom fields to form fields values. New custom fields will be created in %1$s when the form is saved."
+msgstr ""
+
+#: templates/builder/error.php:10
+#: templates/new-account-form.php:53
+msgid "Something went wrong while performing an AJAX request."
+msgstr ""
+
+#. translators: %1$s - current provider name.
+#: templates/new-account-form.php:9
+msgid "%1$s API Key"
+msgstr ""
+
+#. translators: %1$s - current provider name.
+#: templates/new-account-form.php:14
+msgid "%1$s API Secret"
+msgstr ""
+
+#. translators: %1$s - current provider name, %2$s - URL to the Kit Getting started page.
+#: templates/new-account-form.php:32
+msgid "The API Key and API Secret can be found in your %1$s account settings. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">Learn More</a>"
+msgstr ""

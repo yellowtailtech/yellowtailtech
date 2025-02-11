@@ -1,0 +1,20 @@
+{
+    "name": "valeriomonti/auto-alt-text",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AATXT\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Valerio Monti",
+            "email": "valerio.monti@vmweb.it"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

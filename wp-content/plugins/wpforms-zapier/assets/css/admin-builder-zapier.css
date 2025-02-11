@@ -1,0 +1,11 @@
+.wpforms-provider-connection-content {
+  padding: 20px 20px 10px 20px;
+}
+
+.wpforms-provider-connection-content p {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWRtaW4tYnVpbGRlci16YXBpZXIuY3NzIiwic291cmNlcyI6WyJhZG1pbi1idWlsZGVyLXphcGllci5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIi53cGZvcm1zLXByb3ZpZGVyLWNvbm5lY3Rpb24tY29udGVudCB7XG5cdHBhZGRpbmc6IDIwcHggMjBweCAxMHB4IDIwcHg7XG5cblx0cCB7XG5cdFx0ZGlzcGxheTogZ3JpZDtcblx0XHRnYXA6IDIwcHg7XG5cdFx0Z3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMiwgMWZyKTtcblx0fVxufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLEFBQUEsb0NBQW9DLENBQUM7RUFDcEMsT0FBTyxFQUFFLG1CQUFtQjtDQU81Qjs7QUFSRCxBQUdDLG9DQUhtQyxDQUduQyxDQUFDLENBQUM7RUFDRCxPQUFPLEVBQUUsSUFBSTtFQUNiLEdBQUcsRUFBRSxJQUFJO0VBQ1QscUJBQXFCLEVBQUUsY0FBYztDQUNyQyJ9 */

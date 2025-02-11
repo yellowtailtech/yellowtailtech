@@ -1,0 +1,49 @@
+/* 
+Theme Name:   Yellow Tail Tech
+Theme URI:    https://yellowtail.tech
+Description:  Official Theme of YTT
+Author:       Patt Naguit
+Template: hello-elementor
+Version: 2.0.0
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/* Add your custom styles here */
+
+a {
+	color: #fc0;
+}
+
+a:hover {
+	color: #282c38;
+}
+
+.elementor-custom-embed-play i, .elementor-custom-embed-play svg {
+    opacity: 1;
+    border-radius: 50%;
+	transform: scale(1);
+	animation: pulse .5s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.95);
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	#footer-menu .elementor-nav-menu--layout-vertical>ul>li>a {
+		justify-content: center;
+	}
+}

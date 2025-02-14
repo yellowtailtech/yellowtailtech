@@ -34,6 +34,9 @@ function hello_elementor_child_scripts_styles() {
 	wp_enqueue_script( 'slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', true );
 	wp_enqueue_script( 'packery-js', 'https://cdnjs.cloudflare.com/ajax/libs/packery/2.1.2/packery.pkgd.min.js', array('jquery'), '2.1.2', true );
 	wp_enqueue_script( 'imagesloaded-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js', array('jquery'), '2.1.2', true );
+
+    wp_enqueue_script( 'popperjs-js', 'https://unpkg.com/@popperjs/core@2', array('jquery'), '2.0', true );
+    wp_enqueue_script( 'tippy-js', 'https://unpkg.com/tippy.js@6', array('jquery'), '6.0', true );
 	
 
 	//Main JS
@@ -133,10 +136,36 @@ function ytt_process_redirect_url( $url, $form_id, $fields, $form_data, $entry_i
 
         $url = $url.'?first_name='.$fname.'&last_name='.$lname.'&email='.$email.'&a1='.$phone;
     }
+
+    if ( absint( $form_data[ 'id' ] ) == 41606 ) {
+        $fname = $fields[1]['first']; 
+        $lname = $fields[1]['last']; 
+        $email = $fields[4][ 'value' ];
+        $phone = $fields[5][ 'value' ];
+
+        $url = $url.'&first='.$fname.'&last='.$lname.'&email='.$email;
+    }
+
+    if ( absint( $form_data[ 'id' ] ) == 41721 ) {
+        $referer = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
+        $subdirectory = parse_url( $referer, PHP_URL_PATH );
+        $subdirectory = rtrim( $subdirectory, '/' );
+
+
+        $url = $url . '?origin=' . urlencode( $subdirectory );
+    }
     
     return $url;
+
+
+    
 }
 add_filter( 'wpforms_process_redirect_url', 'ytt_process_redirect_url', 10, 5 );
+
+
+
+
+
 
 function ytt_set_author( $query ) {
 

@@ -146,7 +146,7 @@ function ytt_process_redirect_url( $url, $form_id, $fields, $form_data, $entry_i
         $url = $url.'&first='.$fname.'&last='.$lname.'&email='.$email;
     }
 
-    if ( absint( $form_data[ 'id' ] ) == 41721 ) {
+    if ( absint( $form_data[ 'id' ] ) == 41721 || absint( $form_data[ 'id' ] ) == 41798 ) {
         $referer = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
         $subdirectory = parse_url( $referer, PHP_URL_PATH );
         $subdirectory = rtrim( $subdirectory, '/' );
@@ -490,3 +490,64 @@ function ytt_vsl_answered_but_not_interested( $data ) {
     curl_close($ch);
     
 }
+
+function ytt_process_validate_phone( $field_id, $field_submit, $form_data ) { 
+    if ( absint( $form_data[ 'id' ] ) == 40550 ) {
+        // Prepare API URL with URL-encoded phone number.
+        $phone_clean = preg_replace( '/\D/', '', $field_submit );
+    
+        // Prepare API URL with URL-encoded phone number.
+        $api_url = 'https://phonevalidation.abstractapi.com/v1/?api_key=d174d21f5ac04d2a896ab730adda7ace&phone=1' . urlencode( $phone_clean );
+        
+        // Initialize cURL.
+        $ch = curl_init();
+        
+        // Set cURL options.
+        curl_setopt( $ch, CURLOPT_URL, $api_url );
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
+        
+        // Execute the request.
+        $response = curl_exec( $ch );
+        
+        // Close the cURL handle.
+        curl_close( $ch );
+        
+        // Decode the JSON response into an associative array.
+        $data = json_decode( $response, true );
+        
+        // If the API response is invalid or the phone number is not valid.
+        if ( !is_array($data) || !isset( $data['valid'] ) || !$data['valid'] ) {
+            wpforms()->process->errors[ $form_data['id'] ][ $field_id ] = esc_html__( 'The phone number you entered is invalid.', 'plugin-domain' );
+        }
+    }
+}
+
+add_action( 'wpforms_process_validate_phone', 'ytt_process_validate_phone', 10, 3 );
+
+function elementor_author_manual_query( $query ) {
+    // Determine the author ID.
+    if ( is_author() ) {
+        // On an author archive page.
+        $author = get_queried_object();
+        $author_id = isset( $author->ID ) ? $author->ID : 0;
+    } else {
+        // If not on an author archive, try using the global post author,
+        // or fall back to the current logged-in user.
+        global $post;
+        $author_id = isset( $post ) ? $post->post_author : get_current_user_id();
+    }
+
+    // If no author is found, the query will not be modified.
+    if ( ! $author_id ) {
+        return;
+    }
+    
+    // Set query parameters for posts by the identified author
+    // and limit to post types "post" and "article".
+    $query->set( 'author', $author_id );
+    $query->set( 'post_type', array( 'post', 'article' ) );
+    // Optionally, you can set the number of posts to show:
+    // $query->set( 'posts_per_page', 10 );
+}
+add_action( 'elementor/query/author_manual_query', 'elementor_author_manual_query' );

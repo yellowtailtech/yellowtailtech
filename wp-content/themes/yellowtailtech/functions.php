@@ -137,7 +137,7 @@ function ytt_process_redirect_url( $url, $form_id, $fields, $form_data, $entry_i
         $url = $url.'?first_name='.$fname.'&last_name='.$lname.'&email='.$email.'&a1='.$phone;
     }
 
-    if ( absint( $form_data[ 'id' ] ) == 41606 ) {
+    if ( absint( $form_data[ 'id' ] ) == 42067 ) {
         $fname = $fields[1]['first']; 
         $lname = $fields[1]['last']; 
         $email = $fields[4][ 'value' ];
@@ -551,3 +551,128 @@ function elementor_author_manual_query( $query ) {
     // $query->set( 'posts_per_page', 10 );
 }
 add_action( 'elementor/query/author_manual_query', 'elementor_author_manual_query' );
+
+
+/**
+ * Add custom cron interval for every minute.
+ */
+function my_cron_add_minute_interval( $schedules ) {
+    $schedules['every_minute'] = array(
+        'interval' => 60, // Every 60 seconds.
+        'display'  => esc_html__( 'Every Minute' ),
+    );
+    return $schedules;
+}
+add_filter( 'cron_schedules', 'my_cron_add_minute_interval' );
+
+/**
+ * Schedule the custom cron event if not already scheduled.
+ */
+if ( ! wp_next_scheduled( 'gsp_cron_event' ) ) {
+    wp_schedule_event( time(), 'every_minute', 'gsp_cron_event' );
+}
+
+/**
+ * Hook the cron event to your processing function.
+ */
+add_action( 'gsp_cron_event', 'gsp_process_google_sheet_rows' );
+
+/**
+ * Main function to check the Google Sheet and trigger the Zapier webhook.
+ */
+function gsp_process_google_sheet_rows() {
+    // Retrieve the last processed row number (default to 0 if not set).
+    $last_processed_row = (int) get_option( 'gsp_last_processed_row', 0 );
+
+    // CSV export URL for the Google Sheet.
+    // Ensure your Google Sheet is published or shared publicly.
+    $sheet_csv_url = 'https://docs.google.com/spreadsheets/d/1j3zy6PuZ6oYDmN0EziNj05t1-AQpg7fYW9uMJFPtO9g/export?format=csv';
+
+    // Fetch the CSV data.
+    $response = wp_remote_get( $sheet_csv_url );
+    if ( is_wp_error( $response ) ) {
+        error_log( 'Error fetching Google Sheet: ' . $response->get_error_message() );
+        return;
+    }
+    $body = wp_remote_retrieve_body( $response );
+    if ( empty( $body ) ) {
+        error_log( 'Google Sheet returned empty data.' );
+        return;
+    }
+
+    // Parse CSV data into an array.
+    $rows = array_map( 'str_getcsv', explode( "\n", $body ) );
+    if ( empty( $rows ) || ! isset( $rows[0] ) ) {
+        error_log( 'Failed to parse CSV data.' );
+        return;
+    }
+
+    // Assume the first row is headers.
+    $headers = array_shift( $rows );
+    $current_row_number = 1; // Headers are row 1.
+    $new_last_processed = $last_processed_row;
+
+    // Loop through each row.
+    foreach ( $rows as $row ) {
+        $current_row_number++;
+
+        // Skip rows that have already been processed.
+        if ( $current_row_number <= $last_processed_row ) {
+            continue;
+        }
+
+        // Ensure there's at least one column (Column A).
+        if ( empty( $row[0] ) ) {
+            continue;
+        }
+
+        // Convert the value in Column A to a timestamp.
+        $timestamp = strtotime( $row[0] );
+        if ( false === $timestamp ) {
+            // Could not parse date; skip this row.
+            continue;
+        }
+
+        /*
+         * Combined condition:
+         * - The timestamp in Column A must be at least two hours old, and
+         * - The E column (index 4) must be empty.
+         */
+        if ( ( time() - $timestamp ) >= 7200 && ( !isset( $row[4] ) || trim( $row[4] ) === '' ) ) {
+
+            // Prepare the data by combining headers with row values.
+            $data = array_combine( $headers, $row );
+            if ( false === $data ) {
+                // Fallback: use indexed array if combining fails.
+                $data = $row;
+            }
+
+            // Add the current row number to the data payload.
+            $data['row_number'] = $current_row_number;
+
+            // Zapier webhook URL.
+            $webhook_url = 'https://hooks.zapier.com/hooks/catch/7864477/2gen3tw/';
+
+            // Set up the arguments for the POST request.
+            $args = array(
+                'body'    => wp_json_encode( $data ),
+                'headers' => array(
+                    'Content-Type' => 'application/json',
+                ),
+                'timeout' => 15,
+            );
+
+            // Send the POST request.
+            $result = wp_remote_post( $webhook_url, $args );
+            if ( is_wp_error( $result ) ) {
+                error_log( 'Error posting to Zapier: ' . $result->get_error_message() );
+            }
+        }
+
+        // Update the new last processed row number.
+        $new_last_processed = $current_row_number;
+    }
+
+    // Save the new last processed row to avoid duplicate processing.
+    update_option( 'gsp_last_processed_row', $new_last_processed );
+}
